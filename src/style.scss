@@ -9,52 +9,148 @@
     align-items: center;
     flex-direction: column;
 }
+@mixin td_div{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
 body
 {
     margin:0;
-    @include displayF;
-    align-items: baseline;
+    //@include displayF;
+    //align-items: baseline;
     overflow: hidden;
-    width: 100%
+    //width: 100%
+}
+.container{
+    @include border;
+    display: grid;
+    grid-template-columns: 1.5fr 6fr;
+    grid-template-rows: 1fr 6.4fr;
 }
 .header{
 @include border;
-width: 100%;
+//width: 100%;
+grid-column: 1/3;
 @include displayF;
 flex-direction: row
 }
 .sidepanel{
     @include displayF;
     @include border;
-    width: 25%;
-    height: 100%;
-    #sidetab{
+    justify-content: flex-start;
+    //width: 25%;
+    //height: 100%;
+    grid-row: 2/3;
+    gap: 1rem;
+    #project{
+        @include displayF;
+        flex-direction: row;
+        gap: 1.2rem;
+    
+    }
+    .prj_side{
+        @include displayF;
+        @include border;
+        //flex-direction: row;
+        width: 100%;
+        font-size: 25px;
+        font-weight:700;
+        
+        h3 {
+            background-color: rgb(248, 193, 233);
+            margin: 0px;
+        }
+    }
+    .sidetab{
         @include displayF;
         flex-direction: row;
         @include border;
         width: 100%;
-        height: 100%;
-        #tabtitle{
+        
+        .tabtitle{
             @include displayF;
             flex-direction: row;
         }
     }
 
 }
-.main{
+/*.main{
     @include displayF;
     width: 100%;
     height: 100%;
     align-items: baseline;
     flex-direction: row
-}
+}*/
 .display{
     @include displayF;
+    justify-content: flex-start;
     @include border;
-    width: 75%;
-    height: 100%;
+    
+    grid-column: 2/3;
+    //width: 75%;
+    //height: 100%;
 }
 
+div#view_prj {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+   
+    .yellow{
+        @include td_div;
+        background-color: rgb(253, 253, 172);
+    }
+    .green{
+        @include td_div;
+        background-color: rgb(161, 252, 171);
+    }
+    .red{
+        @include td_div;
+        background-color: rgb(247, 141, 141);
+    }
+    button#close {
+        width: 30px;
+        height: 30px;
+    }
+    button#delete_prj {
+        width: 100px;
+        height: 40px;
+    }
+    #view_t {
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+    div#view_d {
+        display: flex;
+        align-items: center;
+        margin-left: 50px;
+    }
+}
+.prjdiv{
+    @include displayF;
+    justify-content: flex-start;
+    width: 500px;
+    height: 100%;
+    gap: 1rem;
+    input{
+        width: 400px;
+        height: 50px;
+
+    }
+    #dv{
+        width: 300px;
+        height: 60px;
+        gap: 1.3rem;
+        @include displayF;
+        flex-direction: row;
+    }
+
+}
 #todo{
     display: flex;
     flex-direction: column;
@@ -134,7 +230,7 @@ flex-direction: row
         width: 315px;
 
     }
-    #done{
+    #done,#delete{
         display: flex;
         width: 120px;
         height: 60px;
